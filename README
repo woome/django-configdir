@@ -1,0 +1,37 @@
+A tool for helping with override Django configs.
+
+django_confighelper on its own creates a config for the current django
+instance based on the current hostname, the current name of the
+effective uid and the current directory in which the django instance
+is sitting:
+
+  config/hostname/euidname__dirname.py
+
+If the config already exists django_confighelper exits with a warning.
+
+The 'edit' subcommand attempts to start a system editor on the
+config. It first tries the environment variable $EDITOR and then
+switches to "editor" from the execution path.
+
+The 'print' subcommand prints the filename of the config file. This is
+so you can script further interactions, for example:
+
+    echo "CONFIG_SPECIAL=True" >> $(django_confighelper print)
+
+The 'default' subcommand looks for a default config file in 
+config/defaults/$user.py and if it exists, it creates a config using
+the values contained there in. It opens the newly created file just
+in case you need to change some values - like FRONTEND_PORT e.t.c
+
+The 'printval' subcommand prints the value of a DJANGO config setting
+after the config has been applied. For example:
+
+    django_confighelper printval DATABASE_HOST
+
+    prints out the setting of the database host.
+
+The 'updatesettings' subcommand appends the contents of configdir/templates.py
+to the end of the settings.py in the current directory. This is required to be
+run once (and once only), and simply adds some import statements to handle
+the additional import of per-instance settings files.
+
