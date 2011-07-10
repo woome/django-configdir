@@ -41,10 +41,21 @@ def update_settings_file():
 
 
 def config_dir():
-    import settings
-    for s in dir(settings):
-        if not s.startswith("_"):
-            print "%s = %r" % (s, settings.__dict__[s])
+    try:
+        from django.conf import settings
+        os.environ["DJANGO_SETTINGS_MODULE"] = settings.__file__
+    except ImportError:
+        import os
+        sys.path += [os.getcwd()]
+        import settings
+        os.environ["DJANGO_SETTINGS_MODULE"] = settings.__file__
+        for s in dir(settings):
+            if not s.startswith("_"):
+                print "%s = %r" % (s, settings.__dict__[s])
+    else:
+        for s in dir(settings):
+            if not s.startswith("_"):
+                print "%s = %r" % (s, settings.__dict__[s])
 
 
 def config_printval():

@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "django_configdir",
-    version = "0.1.5",
+    version = "0.1.6",
     author = "Seb Potter",
     author_email = "seb@woome.com",
     description = ("A utility to create per-user, per-host configuration "
@@ -21,7 +21,10 @@ setup(
     packages=['configdir'],
     requires=['django'],
     entry_points = {
-        'console_scripts': ['django_confighelper = configdir.django_confighelper:main']
+        'console_scripts': [
+            'django_confighelper = configdir.django_confighelper:main',
+            'django-confighelper = configdir.django_confighelper:main',
+            ]
     },
     long_description=read('README'),
     classifiers=[
