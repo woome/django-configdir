@@ -40,6 +40,8 @@ The 'cat' subcommands outputs the contents of the instance specific config file
 
 The 'dir' subcommand outputs the evaluated  values of all settings managed by 
 django_confighelper.
+
+
 confignginx is also included. This is a management command you can use
 to generate Nginx configs from your Django app.
 
