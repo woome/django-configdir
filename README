@@ -35,6 +35,12 @@ to the end of the settings.py in the current directory. This is required to be
 run once (and once only), and simply adds some import statements to handle
 the additional import of per-instance settings files.
 
+The 'cat' subcommands outputs the contents of the instance specific config file 
+(i.e. config/hostname/euidname__dirname.py)
+
+The 'dir' subcommand outputs the evaluated  values of all settings managed by 
+django_confighelper.
+
 
 confignginx is also included. This is a management command you can use
 to generate Nginx configs from your Django app.
