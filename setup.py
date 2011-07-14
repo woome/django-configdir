@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "django_configdir",
-    version = "0.1.9",
+    version = "0.1.10",
     author = "Seb Potter",
     author_email = "seb@woome.com",
     description = ("A utility to create per-user, per-host configuration "

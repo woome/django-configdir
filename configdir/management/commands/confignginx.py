@@ -64,7 +64,7 @@ location %(STATIC_URL)s {
 }
 
 location  / {
-   proxy_pass http://django;
+   proxy_pass http://%(UPSTREAM_NAME)s;
    proxy_redirect off;
    proxy_set_header Host "%(DOMAIN)s";
    proxy_next_upstream error timeout;
