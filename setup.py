@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "django_configdir",
-    version = "0.1.6",
+    version = "0.1.7",
     author = "Seb Potter",
     author_email = "seb@woome.com",
     description = ("A utility to create per-user, per-host configuration "
@@ -18,7 +18,7 @@ setup(
     license = "GPLv2",
     keywords = "django configuration instance utility user",
     url = "http://github.com/woome/django_configdir",
-    packages=['configdir'],
+    packages=['configdir', 'configdir.management', 'configdir.management.commands'],
     requires=['django'],
     entry_points = {
         'console_scripts': [
