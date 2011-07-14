@@ -3,7 +3,6 @@ SETTINGS_TEMPLATE = """
 try:
     import configdir
     conf = configdir.get()
-    print "Getting config: %s" % (conf,)
     cmod = __import__("configs.%s" % conf, {}, {}, [''])
     cmod_dict = dict([
         (k,v) for k,v in cmod.__dict__.iteritems() if not k.startswith('_')
